@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>С днём рождения Мама❤️!</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#0f1724;
+      --accent:#ff6b6b;
+      --soft:#aab3c7;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+              radial-gradient(1200px 600px at 10% 10%, rgba(255,107,107,0.08), transparent 6%),
+              radial-gradient(1000px 500px at 90% 90%, rgba(91,163,255,0.04), transparent 6%),
+              var(--bg);
+      color:#eef2ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .card{
+      width:100%;
+      max-width:980px;
+      background:linear-gradient(180deg,var(--card), rgba(15,23,36,0.85));
+      border-radius:18px;
+      box-shadow: 0 10px 40px rgba(3,6,23,0.6);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:0;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* мобильный адаптив */
+    @media (max-width:900px){
+      .card{grid-template-columns: 1fr; padding-bottom:0}
+      .side{order:2}
+      .main{order:1}
+    }
+
+    .main{
+      padding:34px;
+      position:relative;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    .badge{
+      width:60px;height:60px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent), #ff9a9a);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:20px;color:white;
+      box-shadow: 0 6px 18px rgba(255,107,107,0.18);
+    }
+    h1{
+      margin:0;font-size:22px;letter-spacing:0.4px;
+    }
+    p.lead{margin:12px 0 18px;color:var(--soft);max-width:66%}
+
+    .photos{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .photo{
+      flex: 1 1 calc(50% - 6px);
+      min-width:120px;
+      height:130px;
+      border-radius:12px;
+      overflow:hidden;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .message{
+      margin-top:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:16px;
+      color:var(--soft);
+      line-height:1.5;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .side{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:center;
+      justify-content:center;
+      border-left:1px solid rgba(255,255,255,0.02);
+    }
+
+    .video-wrap{
+      width:100%;
+      max-width:360px;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 8px 30px rgba(3,6,23,0.5);
+      background:black;
+    }
+    video, iframe{
+      display:block;
+      width:100%;
+      height:205px;
+      border:0;
+    }
+
+    .controls{
+      display:flex;
+      gap:10px;
+      margin-top:8px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .btn{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.07);
+      padding:10px 14px;
+      border-radius:10px;
+      color:var(--soft);
+      cursor:pointer;
+      font-weight:600;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--accent), #ff9a9a);
+      color:#111;
+      border: none;
+      box-shadow: 0 6px 20px rgba(255,107,107,0.14);
+    }
+
+    footer{
+      margin-top:14px;color:rgba(255,255,255,0.5);font-size:13px;text-align:center;
+    }
+
+    /* праздничные анимации (легкие) */
+    .confetti{
+      position:absolute;right:6px;top:6px;pointer-events:none;
+      width:120px;height:120px;opacity:0.9;
+      background:
+              conic-gradient(#ffd166 0 25%, transparent 0 40%),
+              conic-gradient(#06d6a0 0 25%, transparent 0 40%),
+              conic-gradient(#ef476f 0 25%, transparent 0 40%);
+      border-radius:50%;
+      filter:blur(24px);
+      mix-blend-mode:screen;
+    }
+
+  </style>
+</head>
+<body>
+<div class="card" role="main" aria-labelledby="title">
+  <div class="main">
+    <div class="confetti" aria-hidden="true"></div>
+
+    <header>
+      <div class="badge">🎉</div>
+      <div>
+        <h1 id="title">С днём рождения, <span id="name">Любимая Мама!❤️</span>!</h1>
+        <p class="lead">Пусть каждый день твой будет наполнен радостью, смехом и тёплыми моментами.</p>
+      </div>
+    </header>
+
+    <div class="photos" aria-label="Фото">
+      <!-- Заменяй photo1.jpg и photo2.jpg на свои файлы -->
+      <div class="photo"><img src="img1.jpg" alt="Фото 1" /></div>
+      <div class="photo"><img src="img2.jpg" alt="Фото 2" /></div>
+    </div>
+
+    <div class="message" id="message">
+      <strong>Теплые слова:</strong>
+      <p>Ты — самый близкий и дорогой человек в моей жизни.
+        Желаю тебе крепкого здоровья, бесконечной энергии и вдохновения. Пусть каждый день приносит радость, а сердце будет согрето любовью и заботой.
+        Спасибо за твою доброту, терпение и поддержку — я горжусь тем, что у меня есть такая замечательная мама.
+      </p>
+    </div>
+
+    <footer>
+      Нажми на видео справа, чтобы включить поздравление.
+    </footer>
+  </div>
+
+  <aside class="side" aria-label="Видео">
+    <div class="video-wrap" id="videoWrap">
+      <!-- Вариант А: локальный файл MP4 (положи happy.mp4 рядом с index.html) -->
+      <video id="cardVideo" controls preload="metadata" playsinline>
+        <source src="video.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео. Попробуйте открыть в другом браузере.
+      </video>
+
+
+
+    <div style="font-size:13px;color:var(--soft);text-align:center;margin-top:6px">
+      Сделано с любовью️
+    </div>
+  </aside>
+</div>
+
+<script>
+
+  // Кнопка воспроизведения — запускаем видео и выделяем момент
+  playBtn.addEventListener('click', () => {
+    if (video) {
+      video.currentTime = 0;
+      video.play().catch(()=>{/* autoplay может блокироваться */});
+    }
+  });
+
+  // Вкл/выкл звука
+  muteBtn.addEventListener('click', () => {
+    if (!video) return;
+    video.muted = !video.muted;
+    muteBtn.textContent = video.muted ? 'Включить звук' : 'Выключить звук';
+  });
+
+</script>
+</body>
+</html>
